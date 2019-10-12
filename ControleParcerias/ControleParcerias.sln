@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleParcerias", "ControleParcerias\ControleParcerias.csproj", "{FCBBAE42-12C2-4BA0-A7E2-192984A8C110}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCBBAE42-12C2-4BA0-A7E2-192984A8C110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCBBAE42-12C2-4BA0-A7E2-192984A8C110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCBBAE42-12C2-4BA0-A7E2-192984A8C110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCBBAE42-12C2-4BA0-A7E2-192984A8C110}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27A586FC-F2C7-415A-AF83-F8D5B5F61F31}
+	EndGlobalSection
+EndGlobal
