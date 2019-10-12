@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ControleParceriasModel
 {
-    class ParceriaLikeModel
+    public class ParceriaLikeModel
     {
+        public int Codigo { get; set; }
+        public int CodigoParceria { get; set; }
+        public DateTime DataHoraCadastro { get; set; }
     }
 }
