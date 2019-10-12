@@ -14,5 +14,6 @@ namespace ParceriaAPI.Controllers
 
             return View();
         }
+
     }
 }

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ControleParceriasBusinness
 {
-    public class Class1
+    public enum Operacao
     {
+        Insert = 1,
+        Update = 2,
+        Delete = 3
+
     }
 }
+

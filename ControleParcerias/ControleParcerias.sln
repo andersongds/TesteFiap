@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleParcerias", "ControleParcerias\ControleParcerias.csproj", "{FCBBAE42-12C2-4BA0-A7E2-192984A8C110}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleParceriasWeb", "ControleParcerias\ControleParceriasWeb.csproj", "{FCBBAE42-12C2-4BA0-A7E2-192984A8C110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParceriaAPI", "ParceriaAPI\ParceriaAPI.csproj", "{7B49CB7B-1D32-4A75-A707-AFE8D663F9F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleParceriasAPI", "ParceriaAPI\ControleParceriasAPI.csproj", "{7B49CB7B-1D32-4A75-A707-AFE8D663F9F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleParceriasModel", "ControleParceriasModel\ControleParceriasModel.csproj", "{D22800C5-02D2-46C3-A7FC-C1DE6B5924D7}"
 EndProject

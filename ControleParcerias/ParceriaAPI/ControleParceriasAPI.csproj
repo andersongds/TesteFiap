@@ -156,6 +156,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ParceriaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,6 +246,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControleParceriasBusinness\ControleParceriasBusinness.csproj">
+      <Project>{c67f730c-ac7e-4584-99dc-15ec55d10553}</Project>
+      <Name>ControleParceriasBusinness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControleParceriasModel\ControleParceriasModel.csproj">
+      <Project>{d22800c5-02d2-46c3-a7fc-c1de6b5924d7}</Project>
+      <Name>ControleParceriasModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

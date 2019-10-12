@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,8 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BaseBusinness.cs" />
+    <Compile Include="Operacao.cs" />
+    <Compile Include="ParceriaBusinness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControleParceriasData\ControleParceriasData.csproj">
+      <Project>{fa23b31f-1f3b-4e43-b070-032b8d37bb83}</Project>
+      <Name>ControleParceriasData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControleParceriasModel\ControleParceriasModel.csproj">
+      <Project>{d22800c5-02d2-46c3-a7fc-c1de6b5924d7}</Project>
+      <Name>ControleParceriasModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
