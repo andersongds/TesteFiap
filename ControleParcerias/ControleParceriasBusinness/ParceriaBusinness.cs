@@ -12,7 +12,7 @@ namespace ControleParceriasBusinness
    public class ParceriaBusinness
     {
 
-        public IEnumerable<ParceriaModel>Obter()
+        public IEnumerable<ParceriaModel>Obter(int? Codigo)
         {
 
             StringBuilder sb = new StringBuilder();
@@ -28,9 +28,41 @@ namespace ControleParceriasBusinness
             sb.Append(" , QtdLikes ");
             sb.Append(" , DataHoraCadastro ");
             sb.Append(" FROM dbo.vParceria ");
+
+            if (Codigo != null)
+                sb.Append(" WHERE Codigo = " + Codigo);
+
             return DapperDataAccess.ExecuteCommandReturnList<ParceriaModel>(sb.ToString());
             
         }
+
+        public IEnumerable<ParceriaModel> ObterPorTitulo(string tilulo)
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(" SELECT ");
+            sb.Append(" Codigo ");
+            sb.Append(" , Titulo ");
+            sb.Append(" , Descricao ");
+            sb.Append(" , URLPagina ");
+            sb.Append(" , Empresa ");
+            sb.Append(" , DataInicio ");
+            sb.Append(" , DataTermino ");
+            sb.Append(" , QtdLikes ");
+            sb.Append(" , DataHoraCadastro ");
+            sb.Append(" FROM dbo.vParceria ");
+
+            if (!string.IsNullOrEmpty(tilulo))
+                sb.Append(" WHERE titulo = '" + tilulo + "' ");
+
+            return DapperDataAccess.ExecuteCommandReturnList<ParceriaModel>(sb.ToString());
+
+        }
+
+
+
+
 
         public void Criar(ParceriaModel parceriaModel)
         {

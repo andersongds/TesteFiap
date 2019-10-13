@@ -18,7 +18,26 @@ namespace ParceriaAPI.Controllers
         [HttpGet]
         public List<ParceriaModel>Listar()
         {
-            var ListaParcerias = _parceriaBusinness.Obter().ToList();
+            var ListaParcerias = _parceriaBusinness.Obter(null).ToList();
+            return ListaParcerias;
+        }
+
+        /// <returns>List<ParceriaModel></returns>
+
+
+
+
+        [HttpGet]
+        public ParceriaModel ObterPorCodigo(int Codigo)
+        {
+            var ListaParcerias = _parceriaBusinness.Obter(Codigo).ToList();
+            return ListaParcerias.First();
+        }
+
+        [HttpGet]
+        public List<ParceriaModel> ObterPorTitulo( string titulo)
+        {
+            var ListaParcerias = _parceriaBusinness.ObterPorTitulo(titulo).ToList();
             return ListaParcerias;
         }
 
@@ -65,7 +84,7 @@ namespace ParceriaAPI.Controllers
         /// </summary>
         /// <param name="parceriaModel"></param>
         /// <returns>true|Parceiro Excluído - false|Erro na Exclusão</returns>
-        [HttpPut]
+        [HttpDelete]
         public IHttpActionResult Excluir(ParceriaModel parceriaModel)
         {
             try

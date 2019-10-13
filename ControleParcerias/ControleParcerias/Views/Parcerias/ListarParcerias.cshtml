@@ -1,0 +1,98 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using ControleParcerias.Models;
+@model IEnumerable<ParceriaModelView>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <h2>Parcerias</h2>
+        <p>
+            @Html.ActionLink("Cadastrar Parceria", "Criar", "Parceria")
+        </p>
+        <table border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Codigo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.URLPagina)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QtdLikes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataInicio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataTermino)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataHoraCadastro)
+                </th>
+                <th>
+                    Alterar/Excluir
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.URLPagina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Empresa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QtdLikes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataInicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataTermino)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataHoraCadastro)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Alterar |", "Atualizar", new { Codigo = item.Codigo })
+                        @Html.ActionLink("Excluir", "Excluir", new { Codigo = item.Codigo }, new { onclick = "return confirm('Deseja realmente excluir esta parceria?');" })
+                    </td>
+                </tr>
+            }
+        </table>
+        @if (Model.Count() == 0)
+        {
+            <div><p>Nenhuma parceria cadastrada<p></div>
+        }
+    </div>
+</body>
+</html>

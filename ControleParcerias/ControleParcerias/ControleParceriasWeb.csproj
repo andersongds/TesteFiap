@@ -132,6 +132,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappers\ConverterModelViewToParceiroModel .cs" />
+    <Compile Include="Mappers\ConverterParceiroModelToModelView.cs" />
     <Compile Include="Models\ParceriaModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,7 +173,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Parcerias\_ParceriaLista.cshtml" />
+    <Content Include="Views\Parcerias\ListarParcerias.cshtml" />
+    <Content Include="Views\Parcerias\CadastroParcerias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

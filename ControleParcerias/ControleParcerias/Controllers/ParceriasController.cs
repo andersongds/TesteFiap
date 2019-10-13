@@ -1,4 +1,6 @@
-﻿using ControleParceriasModel;
+﻿using ControleParcerias.Mappers;
+using ControleParcerias.Models;
+using ControleParceriasModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +15,49 @@ namespace ControleParcerias.Controllers
         // GET: Parcerias
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("ListarParcerias");
         }
 
-
-        [HttpPost]
-        public async Task<ActionResult> Form(ParceriaModel parceriaModel)
+        public ActionResult CadastroParcerias()
         {
-            var CriacaoParceria = await AcessaAPI.Criar(parceriaModel);
-
-            if (CriacaoParceria)
+            return View("CadastroParcerias", new ParceriaModelView());
+        }
+        [HttpPost]
+        public async Task<ActionResult> CadastroParcerias(ParceriaModelView parceriaModelView)
+        {
+            var conta = await AcessaAPI.ObterPorTitulo(parceriaModelView.Titulo);
+            if (conta != null)
+                ModelState.AddModelError("Titulo", "Titulo já esta cadastrado");
+            if (ModelState.IsValid)
             {
-                var listaParcerias = await AcessaAPI.Listar();
+                var parceiroModel = ConverterModelViewToParceiroModel.ConvertModelViewToModel(parceriaModelView);
+                parceiroModel.DataHoraCadastro = DateTime.Now;
+                var CriacaoParceria = await AcessaAPI.Criar(parceiroModel);
+                
+
+
+                return RedirectToAction("ListarParcerias");
                 
             }
+            else{
+                return View(parceriaModelView);
+                }
 
-            return View("Erro");
+       }
+        public async Task<ActionResult> ListarParcerias()
+        {
+            var listaParcerias = await AcessaAPI.Listar();
 
+            return View(listaParcerias);
+        }
 
+        public async Task<ActionResult> Excluir(int Codigo)
+        {
+            var ParceriaModel   = await AcessaAPI.ObterPorCodigo(Codigo);
+
+            await AcessaAPI.Excluir(ParceriaModel);
+
+            return RedirectToAction("ListarParcerias");
         }
 
     }
