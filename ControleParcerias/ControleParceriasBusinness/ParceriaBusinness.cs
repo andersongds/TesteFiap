@@ -55,6 +55,50 @@ namespace ControleParceriasBusinness
         }
 
 
+        public void Atualizar(ParceriaModel parceriaModel)
+        {
+            try
+            {
+                if ((parceriaModel == null)||
+                   ( parceriaModel.Codigo == 0))
+                {
+                    throw new Exception("Não há dados para Atualização da Parceria");
+                }
+                else
+                {
+
+                    var dbArgs = new DynamicParameters(parceriaModel);
+                    dbArgs.Add("Operacao", Operacao.Update);
+                    DapperDataAccess.ExecuteWhitoutReturn("spParceria", dbArgs);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void Excluir(ParceriaModel parceriaModel)
+        {
+            try
+            {
+                if ((parceriaModel == null) ||
+                   (parceriaModel.Codigo == 0))
+                {
+                    throw new Exception("Não há dados de parceria para realizar a exclusão");
+                }
+                else
+                {
+
+                    var dbArgs = new DynamicParameters(parceriaModel);
+                    dbArgs.Add("Operacao", Operacao.Delete);
+                    DapperDataAccess.ExecuteWhitoutReturn("spParceria", dbArgs);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

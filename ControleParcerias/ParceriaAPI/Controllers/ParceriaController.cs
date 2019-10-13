@@ -27,18 +27,57 @@ namespace ParceriaAPI.Controllers
         /// </summary>
         /// <returns>true|Parceiro criado - false|Erro na criacao</returns>
         [HttpPost]
-        public bool Criar(ParceriaModel parceriaModel)
+        public IHttpActionResult Criar(ParceriaModel parceriaModel)
         {
             try
             {
                 _parceriaBusinness.Criar(parceriaModel);
-                return true;
+                return Ok();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
             
+        }
+        /// <summary>
+        /// Atualizar dados de parceria
+        /// </summary>
+        /// <param name="parceriaModel"></param>
+        /// <returns>true|Parceiro Atualizado - false|Erro na Atualização</returns>
+        [HttpPut]
+        public IHttpActionResult Atualizar(ParceriaModel parceriaModel)
+        {
+            try
+            {
+                _parceriaBusinness.Atualizar(parceriaModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        /// <summary>
+        /// Excluir dados de parceria
+        /// </summary>
+        /// <param name="parceriaModel"></param>
+        /// <returns>true|Parceiro Excluído - false|Erro na Exclusão</returns>
+        [HttpPut]
+        public IHttpActionResult Excluir(ParceriaModel parceriaModel)
+        {
+            try
+            {
+                _parceriaBusinness.Excluir(parceriaModel);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }
