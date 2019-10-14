@@ -9,7 +9,7 @@ namespace ControleParcerias.Mappers
 {
     public class ConverterParceiroModelToModelView
     {
-        public static List<ParceriaModelView> ConvertModelToModelView(List<ParceriaModel> listaParcerias)
+        public static List<ParceriaModelView> ConvertListaModelToModelView(List<ParceriaModel> listaParcerias)
         {
             List<ParceriaModelView> listaParceriaModelView = new List<ParceriaModelView>();
             foreach (var parceria in listaParcerias)
@@ -30,5 +30,38 @@ namespace ControleParcerias.Mappers
 
             return listaParceriaModelView;
         }
+
+
+        public static ParceriaModelView ConvertModelToModelView(ParceriaModel parceriasModel)
+        {
+            ParceriaModelView parceriaModelView = new ParceriaModelView()
+                {
+                    Codigo = parceriasModel.Codigo,
+                    Titulo = parceriasModel.Titulo,
+                    Descricao = parceriasModel.Descricao,
+                    URLPagina = parceriasModel.URLPagina,
+                    Empresa = parceriasModel.Empresa,
+                    QtdLikes = parceriasModel.QtdLikes,
+                    DataInicio = parceriasModel.DataInicio,
+                    DataTermino = parceriasModel.DataTermino,
+                    DataHoraCadastro = parceriasModel.DataHoraCadastro
+                };
+            
+
+            return parceriaModelView;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

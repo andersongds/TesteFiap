@@ -81,6 +81,22 @@ namespace ControleParcerias
             }
             
         }
+
+        public static async Task<bool> Atualizar(ParceriaModel parceriaModel)
+        {
+            var client = new HttpClient();
+            var endpoint = string.Format(UrlApiControleParcerias + "\\{0}\\{1}", "Parceria", "Atualizar");
+            var response = await client.PostAsJsonAsync(endpoint, parceriaModel);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
         public static async Task<bool> Excluir(ParceriaModel parceriaModel)
         {
             var client = new HttpClient();

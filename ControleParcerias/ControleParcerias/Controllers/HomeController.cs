@@ -10,7 +10,7 @@ namespace ControleParcerias.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Parcerias");
         }
 
         public ActionResult About()

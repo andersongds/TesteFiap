@@ -35,13 +35,15 @@ namespace ControleParcerias.Models
         public string Empresa { get; set; }
 
         [Required(ErrorMessage = "Data Início é obrigatória")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]       
         [Display(Name = "Data de Início")]
         public DateTime DataInicio { get; set; }
 
 
         [Required(ErrorMessage = "Data Término é obrigatória")]
-        [DataType(DataType.Date)]      
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data de término")]
         public DateTime DataTermino { get; set; }
 
@@ -49,7 +51,7 @@ namespace ControleParcerias.Models
         [Display(Name = "Quantidade de Likes")]
         public int QtdLikes { get; set; }
 
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Data e hora de cadastro")]
         public DateTime DataHoraCadastro { get; set; }
 
@@ -62,7 +64,7 @@ namespace ControleParcerias.Models
                   new ValidationResult(errorMessage: "Data Inicial não pode ser maior que a de término",
                                        memberNames: new[] { "DataTermino", "DataInicio" });
             }
-            if ((DataTermino - DataTermino).Days < 5)
+            if ((DataTermino - DataInicio).Days < 5)
             {
                 yield return
                   new ValidationResult(errorMessage: "O perído de parceria deve ter mais de 5 dias",
