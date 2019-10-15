@@ -1,0 +1,5 @@
+Para executar a API Basta iniciar o projeto da API como principal, ou pelo visual studio debug new instance e iniciar o projeto no IIS
+
+Para executar o projeto de Cadastro de parcerias, precisa que a API esteja sendo executada,
+ portanto pode da mesma forma iniciar a API  como nova instancia do debug e em seguida iniciar também uma nova instancia
+do projeto web.
