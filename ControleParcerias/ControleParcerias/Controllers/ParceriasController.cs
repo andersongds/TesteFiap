@@ -53,9 +53,9 @@ namespace ControleParcerias.Controllers
         [HttpPost]
         public async Task<ActionResult> AtualizarParcerias(ParceriaModelView parceriaModelView)
         {
-            var conta = await AcessaAPI.ObterPorTitulo(parceriaModelView.Titulo);
-            if (conta.Count > 0)
-                ModelState.AddModelError("Titulo", "Titulo já esta cadastrado");
+
+            
+                
             if (ModelState.IsValid)
             {
                 var parceiroModel = ConverterModelViewToParceiroModel.ConvertModelViewToModel(parceriaModelView);

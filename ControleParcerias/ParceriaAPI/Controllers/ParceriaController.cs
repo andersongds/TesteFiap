@@ -22,11 +22,6 @@ namespace ParceriaAPI.Controllers
             return ListaParcerias;
         }
 
-        /// <returns>List<ParceriaModel></returns>
-
-
-
-
         [HttpGet]
         public ParceriaModel ObterPorCodigo(int Codigo)
         {

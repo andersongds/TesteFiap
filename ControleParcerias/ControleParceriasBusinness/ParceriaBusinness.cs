@@ -12,6 +12,82 @@ namespace ControleParceriasBusinness
    public class ParceriaBusinness
     {
 
+        // PARTE 3 inicio
+        public IEnumerable<ParceriaModel> RetornaLista()
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(" SELECT ");
+            
+            sb.Append("  Titulo ");
+            sb.Append(" , ISNULL(URLPagina,'') URLPagina ");
+            sb.Append(" , Empresa ");           
+            sb.Append(" , DataTermino ");
+            sb.Append(" , QtdLikes ");
+            sb.Append(" FROM dbo.vParceria ");
+            sb.Append(" WHERE GETDATE() BETWEEN DataInicio AND DataTermino ");
+
+            return DapperDataAccess.ExecuteCommandReturnList<ParceriaModel>(sb.ToString());
+
+        }
+        //PARTE 3
+        public IEnumerable<ParceriaModel> PesquisaParceria(string pesquisaParam)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(" SELECT ");
+
+            sb.Append("  Titulo ");
+            sb.Append(" , ISNULL(URLPagina,'') URLPagina ");
+            sb.Append(" , Empresa ");
+            sb.Append(" , DataTermino ");
+            sb.Append(" , QtdLikes ");
+            sb.Append(" FROM dbo.vParceria ");
+            sb.Append(" WHERE GETDATE() BETWEEN DataInicio AND DataTermino ");
+            sb.Append(" AND titulo LIKE '%" + pesquisaParam + "%'");
+            sb.Append(" OR Empresa LIKE '%" + pesquisaParam + "%'");
+            return DapperDataAccess.ExecuteCommandReturnList<ParceriaModel>(sb.ToString());
+
+        }
+        //PARTE 3
+
+        public IEnumerable<ParceriaModel> RetornaParceria(int? Codigo)
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(" SELECT ");
+            
+            sb.Append("  Titulo ");
+            sb.Append(" , Descricao ");
+            sb.Append(" , ISNULL(URLPagina,'') URLPagina ");
+            sb.Append(" , Empresa ");            
+            sb.Append(" , DataTermino ");           
+            sb.Append(" FROM dbo.vParceria ");
+            sb.Append(" WHERE GETDATE() BETWEEN DataInicio AND DataTermino ");
+            if (Codigo != null)
+                sb.Append(" AND Codigo = " + Codigo);
+
+            return DapperDataAccess.ExecuteCommandReturnList<ParceriaModel>(sb.ToString());
+
+        }
+
+        public bool CadastraLike(int Codigo)
+        {
+            var parceria = RetornaParceria(Codigo);
+            if (parceria.Count() > 0)
+            {
+                var dbArgs = new DynamicParameters(Codigo);
+                dbArgs.Add("Operacao", Operacao.Insert);
+                DapperDataAccess.ExecuteWhitoutReturn("spParceria", dbArgs);
+                return true;
+            }
+            return false;
+        }
+
+        //PARTE 3 FIM     
+
         public IEnumerable<ParceriaModel>Obter(int? Codigo)
         {
 
